@@ -22,3 +22,30 @@ header p {
   opacity: 0.85;
 }
 
+/* main */
+main {
+  padding: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* seccion selector */
+.seccion {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+
