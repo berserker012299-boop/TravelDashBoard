@@ -8,5 +8,20 @@ const ciudades = {
 };
 // ── EVENTO PRINCIPAL: cambio de ciudad ─────────
 document.getElementById("city-select").addEventListener("change", async function () {
+  const clave = this.value;
+
+  if (!clave) {
+    document.getElementById("dashboard").classList.add("hidden");
+    return;
+  }
+
+  const ciudad = ciudades[clave];
+  document.getElementById("dashboard").classList.remove("hidden");
+
+  // Mostrar datos básicos de la ciudad
+  document.getElementById("nombre-ciudad").textContent = ciudad.nombre;
+  document.getElementById("pais-ciudad").textContent = ciudad.pais;
+  document.getElementById("moneda-ciudad").textContent = ciudad.moneda;
+
   
 });
