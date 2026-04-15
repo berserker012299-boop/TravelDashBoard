@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+  background: rgb(222, 244, 134);
+  color: #bb1c1c;
+}
+
+/* header */
+header {
+  background: rgb(18, 96, 122);
+  color: white;
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
