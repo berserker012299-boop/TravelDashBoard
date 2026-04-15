@@ -63,6 +63,12 @@ document.getElementById("city-select").addEventListener("change", async function
 
     //Evento: boton convertir moneda
     document.getElementById("btn-convertir").addEventListener("click", async function () {
+        const clave = document.getElementById("city-select").value;
+        if (!clave) return;
+
+        const ciudad = ciudades[clave];
+        const cantidad = parseFloat(document.getElementById("cantidad-eur").value);
+
         
     });
 
