@@ -16,7 +16,7 @@
             <label for="city-select">Selecciona una ciudad:</label>
 
                 <select id="city-select">
-                    <option value="">— Elige una ciudad —</option>
+                    <option value="">Elige una ciudad</option>
                     <option value="barcelona">🇪🇸 Barcelona</option>
                     <option value="london">🇬🇧 London</option>
                     <option value="paris">🇫🇷 Paris</option>
@@ -27,6 +27,14 @@
 
         <!-- Dashboard (oculto hasta elegir ciudad) -->
          <div id="dashboard" class="hidden">
+            <section class="card">
+                    <h2>Resumen del destino</h2>
+
+                    <p><strong>Ciudad:</strong> <span id="nombre-ciudad">—</span></p>
+                    <p><strong>País:</strong> <span id="pais-ciudad">—</span></p>
+                    <p><strong>Temperatura:</strong> <span id="temp-resumen">—</span></p>
+                    <p><strong>Moneda local:</strong> <span id="moneda-ciudad">—</span></p>
+                </section>
 
          </div>
 
