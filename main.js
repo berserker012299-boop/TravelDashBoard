@@ -45,7 +45,15 @@ document.getElementById("city-select").addEventListener("change", async function
         // Temperatura en el resumen
         document.getElementById("temp-resumen").textContent = temp + "°C";
 
-        
+        // Mensaje de recomendación
+        let mensaje;
+        if (lluvia > 50) mensaje = `Lleva paraguas en ${ciudad.nombre}, hay alta probabilidad de lluvia.`;
+        else if (temp < 10) mensaje = `Hace frío en ${ciudad.nombre} (${temp}°C). ¡No olvides la chaqueta!`;
+        else if (temp < 25) mensaje = `Buen tiempo en ${ciudad.nombre} (${temp}°C). Perfecto para pasear.`;
+        else mensaje = `Hace calor en ${ciudad.nombre} (${temp}°C). ¡Hidrádate bien!`;
+
+        document.getElementById("mensaje").textContent = mensaje;
+    }
 
   
 });
