@@ -69,9 +69,29 @@ document.getElementById("city-select").addEventListener("change", async function
         const ciudad = ciudades[clave];
         const cantidad = parseFloat(document.getElementById("cantidad-eur").value);
 
-        if (isNaN(cantidad) ||\ cantidad < 0) {
+        if (isNaN(cantidad) || cantidad < 0) {
             alert("Introduce una cantidad válida.");
             return;
+        }
+
+        try {
+            let resultado, tasa;
+
+            if (ciudad.moneda === "EUR") {
+                tasa = 1;
+                resultado = cantidad.toFixed(2);
+            } else {
+                const urlMoneda = `https://api.frankfurter.dev/v1/latest?base=EUR&symbols=${ciudad.moneda}`;
+                const resMoneda = await fetch(urlMoneda);
+                const datosMoneda = await resMoneda.json();
+                tasa = datosMoneda.rates[ciudad.moneda];
+                resultado = (cantidad * tasa).toFixed(2);
+            }
+
+            document.getElementById("resultado-conversion").textContent =
+                `${cantidad} EUR → ${resultado} ${ciudad.moneda} (1 EUR = ${tasa} ${ciudad.moneda})`;
+
+        } 
         }
 
         
