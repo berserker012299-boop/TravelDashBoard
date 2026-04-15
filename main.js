@@ -34,9 +34,16 @@ document.getElementById("city-select").addEventListener("change", async function
         document.getElementById("temperatura").textContent = temp + "°C";
         document.getElementById("lluvia").textContent = lluvia + "%";
 
-       
+         // Estado de lluvia
+        let estadoLluvia;
+        if (lluvia <= 20) estadoLluvia = "Sin lluvia";
+        else if (lluvia <= 50) estadoLluvia = "Posible lluvia";
+        else estadoLluvia = " Probable lluvia";
 
-        }
+        document.getElementById("estado-lluvia").textContent = estadoLluvia;
+
+        
+    }
 
   
 });
