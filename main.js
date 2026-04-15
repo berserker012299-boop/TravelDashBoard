@@ -69,6 +69,11 @@ document.getElementById("city-select").addEventListener("change", async function
         const ciudad = ciudades[clave];
         const cantidad = parseFloat(document.getElementById("cantidad-eur").value);
 
+        if (isNaN(cantidad) ||\ cantidad < 0) {
+            alert("Introduce una cantidad válida.");
+            return;
+        }
+
         
     });
 
