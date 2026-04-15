@@ -1,27 +1,42 @@
 //objetos de ciudades 
 const ciudades = {
-  barcelona: { nombre: "Barcelona", pais: "España",          lat: 41.38, lon: 2.17,    moneda: "EUR" },
-  london:    { nombre: "London",    pais: "United Kingdom",  lat: 51.50, lon: -0.12,   moneda: "GBP" },
-  paris:     { nombre: "Paris",     pais: "Francia",         lat: 48.85, lon: 2.35,    moneda: "EUR" },
-  new_york:  { nombre: "New York",  pais: "Estados Unidos",  lat: 40.71, lon: -74.00,  moneda: "USD" },
-  tokyo:     { nombre: "Tokyo",     pais: "Japón",           lat: 35.67, lon: 139.65,  moneda: "JPY" },
+    barcelona: { nombre: "Barcelona", pais: "España", lat: 41.38, lon: 2.17, moneda: "EUR" },
+    london:    { nombre: "London", pais: "United Kingdom", lat: 51.50, lon: -0.12, moneda: "GBP" },
+    paris:     { nombre: "Paris", pais: "Francia", lat: 48.85, lon: 2.35, moneda: "EUR" },
+    new_york:  { nombre: "New York", pais: "Estados Unidos", lat: 40.71, lon: -74.00, moneda: "USD" },
+    tokyo:     { nombre: "Tokyo", pais: "Japón", lat: 35.67, lon: 139.65, moneda: "JPY" },
 };
 // ── EVENTO PRINCIPAL: cambio de ciudad ─────────
 document.getElementById("city-select").addEventListener("change", async function () {
-  const clave = this.value;
+    const clave = this.value;
 
-  if (!clave) {
-    document.getElementById("dashboard").classList.add("hidden");
-    return;
-  }
+    if (!clave) {
+        document.getElementById("dashboard").classList.add("hidden");
+        return;
+    }
 
-  const ciudad = ciudades[clave];
-  document.getElementById("dashboard").classList.remove("hidden");
+    const ciudad = ciudades[clave];
+    document.getElementById("dashboard").classList.remove("hidden");
 
-  // Mostrar datos básicos de la ciudad
-  document.getElementById("nombre-ciudad").textContent = ciudad.nombre;
-  document.getElementById("pais-ciudad").textContent = ciudad.pais;
-  document.getElementById("moneda-ciudad").textContent = ciudad.moneda;
+    // Mostrar datos básicos de la ciudad
+    document.getElementById("nombre-ciudad").textContent = ciudad.nombre;
+    document.getElementById("pais-ciudad").textContent = ciudad.pais;
+    document.getElementById("moneda-ciudad").textContent = ciudad.moneda;
+
+    try {
+        const urlClima = `https://api.open-meteo.com/v1/forecast?latitude=${ciudad.lat}&longitude=${ciudad.lon}&current=temperature_2m,precipitation_probability&timezone=auto`;
+        const resClima = await fetch(urlClima);
+        const datosClima = await resClima.json();
+
+        const temp = Math.round(datosClima.current.temperature_2m);
+        const lluvia = datosClima.current.precipitation_probability;
+
+        document.getElementById("temperatura").textContent = temp + "°C";
+        document.getElementById("lluvia").textContent = lluvia + "%";
+
+       
+
+        }
 
   
 });
