@@ -61,5 +61,10 @@ document.getElementById("city-select").addEventListener("change", async function
         document.getElementById("mensaje").textContent = "No se pudo cargar el clima.";
     }
 
+    //Evento: boton convertir moneda
+    document.getElementById("btn-convertir").addEventListener("click", async function () {
+        
+    });
+
   
 });
