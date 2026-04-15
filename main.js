@@ -53,6 +53,12 @@ document.getElementById("city-select").addEventListener("change", async function
         else mensaje = `Hace calor en ${ciudad.nombre} (${temp}°C). ¡Hidrádate bien!`;
 
         document.getElementById("mensaje").textContent = mensaje;
+    } catch (error) {
+        document.getElementById("temperatura").textContent = "Error";
+        document.getElementById("lluvia").textContent = "—";
+        document.getElementById("estado-lluvia").textContent = "No disponible";
+        document.getElementById("temp-resumen").textContent = "—";
+        document.getElementById("mensaje").textContent = "No se pudo cargar el clima.";
     }
 
   
