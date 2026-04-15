@@ -91,7 +91,8 @@ document.getElementById("city-select").addEventListener("change", async function
             document.getElementById("resultado-conversion").textContent =
                 `${cantidad} EUR → ${resultado} ${ciudad.moneda} (1 EUR = ${tasa} ${ciudad.moneda})`;
 
-        } 
+        } catch (error) {
+            document.getElementById("resultado-conversion").textContent = "Error al obtener la tasa de cambio.";
         }
 
         
