@@ -42,8 +42,10 @@ document.getElementById("city-select").addEventListener("change", async function
 
         document.getElementById("estado-lluvia").textContent = estadoLluvia;
 
+        // Temperatura en el resumen
+        document.getElementById("temp-resumen").textContent = temp + "°C";
+
         
-    }
 
   
 });
